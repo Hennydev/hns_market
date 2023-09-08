@@ -11,6 +11,12 @@ import CountrySelector from "./CountrySelector";
 import Form from "./Form";
 import EditForm from "./EditForm";
 import AddNewAddress from "./AddNewAddress";
+import PaymentMethod from "./paymentMethod";
+import SelectCard from "./SelectCard";
+import AddCard from "./AddCard";
+import AddPromoCode from "./AddPromoCode";
+
+import PaymentSucessfulModal from "./PaymentSucessfulModal";
 const customStyles = {
   content: {
     top: "49%",
@@ -26,13 +32,7 @@ const customStyles = {
   },
 };
 
-const info = ({ }) => {
-  return (
-    <div>
-      heelo
-    </div>
-  )
-}
+
 function App() {
   const [firstName, setFirstName] = useState("John")
   const [lastName, setLastName] = useState("Doe")
@@ -46,9 +46,28 @@ function App() {
   const [AdditionalNumber, setAdditionalNumber] = useState("")
   const [displayEdit, setDisplayEdit] = useState(false)
   const [newAddress, setNewAddress] = useState(false)
+  const [paymentType, setPaymentType] = useState(false)
+  const [selectMethod, setSelectMethod] = useState(false)
+  const [toggleNewCard, setToggleNewCard] = useState(false)
+  const [ChangePaymentMethod, setChangePaymentMethod] = useState(false)
+  const [showChangePaymentButton, setShowPaymentButton] = useState(false)
+  const [showChangePromoButton, setShowPromoButton] = useState(false)
+  const [promoCode, setPromoCode] = useState<string>("")
+  const [promoCodeInfo, setPromoCodeInfo] = useState<string>("")
+  const [paymentModal, setPaymentModal] = useState<boolean>(false)
+  const handleCheckOutModal=()=>{
+    setModalOpen(true)
+    setPaymentModal(false)
+  }
+  const handlePaymentCheckout = ()=>{
+    setPaymentModal(true)
+    
+   
+
+  }
   return (
     <div className="App ">
-      <button onClick={() => setModalOpen(true)}>Check Out</button>
+      <button onClick={handleCheckOutModal}>Check Out</button>
       <Modal
         isOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
@@ -86,7 +105,8 @@ function App() {
                   <div >
                     <div className="">
                       {
-                        !editSavedInfo && <div className="mb-[0.125rem]  block min-h-[1.5rem] pl-[1.5rem]">
+                        !editSavedInfo &&
+                        <div className="mb-[0.125rem]  block min-h-[1.5rem] pl-[1.5rem]">
                           <input
                             className="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-4 w-4 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-black checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-black checked:after:bg-black checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-black checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                             type="radio"
@@ -209,8 +229,8 @@ function App() {
                   </div>
 
 
-                  <div className='flex flex-row items-center  justify-center my-3 space-x-4'>
-                    <button className='py-1.5 text-sm flex items-center w-full justify-center rounded-md bg-[#dfdede] text-[#3c3c43] font-semibold'>Check Out</button>
+                  <div onClick={handlePaymentCheckout}  className='flex flex-row items-center  justify-center my-3 space-x-4'>
+                    <button className='py-1.5 text-sm flex items-center w-full justify-center rounded-md bg-[#dfdede] text-[#3c3c43] font-semibold'><PaymentSucessfulModal setPaymentModal={setPaymentModal} paymentModal={paymentModal}/></button>
 
 
                   </div>
@@ -222,19 +242,67 @@ function App() {
             <div className="px-8">
 
 
-              <div className="relative ">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                  <p className="bg-[#dfdede] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
+
+              <div className="border border-gray-300 rounded-lg w-[64%]">
+
+                <div className="border-b flex flex-row justify-between  ">
+                  <div onClick={() => setPaymentType(true)} className=" flex flex-row  space-x-2 items-center my-3 px-3">
+                    <p className="active:bg-[#009B30] bg-[#7c7c7c] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
+                    <p className="text-sm">Payment</p>
+
+                  </div>
+                  {
+                    showChangePaymentButton &&
+                    <div  className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
+                      <p className="text-sm">Change</p>
+                      <p className=" flex flex-row items-center  text-sm text-center justify-center rounded-full "><MdOutlineArrowForwardIos /></p>
+                    </div>
+
+                  }
                 </div>
-                <input type="text" id="input-group-1" className="bg-gray-50 border w-[64%] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black focus:border-black block  pl-10 p-[6px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Payment" />
+                <div>{toggleNewCard  ? <AddCard setChangePaymentMethod={setChangePaymentMethod} setShowPaymentButton = {setShowPaymentButton} /> :
+                  <div>
+                    {
+                      selectMethod ? <div className="mx-3 my-2"><SelectCard setToggleNewCard={setToggleNewCard} /></div> : <div> {
+                        paymentType && <div className="mx-3 my-2"><PaymentMethod setSelectMethod={setSelectMethod} /></div>
+                      }</div>
+                    }
+                  </div>
+                }</div>
+
+
               </div>
 
 
-              <div className="relative my-2">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                  <p className="bg-[#dfdede] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
+
+              <div className="border border-gray-300 rounded-lg w-[64%] mt-2">
+
+                <div className="border-b flex flex-row justify-between  ">
+                  <div onClick={()=>setChangePaymentMethod(true)}  className=" flex flex-row  space-x-2 items-center my-3 px-3">
+                    <p className="active:bg-[#009B30] bg-[#7c7c7c] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
+                    <p className="text-sm">Promo Code</p>
+
+                  </div>
+                
+                  {
+                    showChangePromoButton && <div  className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
+                    <p className="text-sm">Change</p>
+                    <p className=" flex flex-row items-center  text-sm text-center justify-center rounded-full "><MdOutlineArrowForwardIos /></p>
+                  </div>
+                  }  
+
+                  
                 </div>
-                <input type="text" id="input-group-1" className="bg-gray-50 border w-[64%] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black focus:border-black block  pl-10 p-[6px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Promo Code" />
+                <div>{ChangePaymentMethod && <AddPromoCode setChangePaymentMethod={setChangePaymentMethod} setPromoCodeInfo={setPromoCodeInfo} promoCode={promoCode} setPromoCode={setPromoCode} /> 
+                  
+                }</div>
+                   {
+                         (promoCodeInfo.length > 0) && <div className="mx-9 my-2">
+                          <p className="text-sm font-semibold">Utilized Promo Code</p>
+                          <p className="text-sm font-[400] text-[#3c3c43]">{promoCodeInfo}</p>
+                         </div>
+                   }
+
               </div>
 
               <div className="pb-4 mt-2 text-[#009B30] text-md flex items-center">
