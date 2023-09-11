@@ -55,14 +55,15 @@ function App() {
   const [promoCode, setPromoCode] = useState<string>("")
   const [promoCodeInfo, setPromoCodeInfo] = useState<string>("")
   const [paymentModal, setPaymentModal] = useState<boolean>(false)
-  const handleCheckOutModal=()=>{
+  const [newCardDetails, setNewCardDetails] = useState<boolean>(false)
+  const handleCheckOutModal = () => {
     setModalOpen(true)
     setPaymentModal(false)
   }
-  const handlePaymentCheckout = ()=>{
+  const handlePaymentCheckout = () => {
     setPaymentModal(true)
-    
-   
+
+
 
   }
   return (
@@ -229,8 +230,8 @@ function App() {
                   </div>
 
 
-                  <div onClick={handlePaymentCheckout}  className='flex flex-row items-center  justify-center my-3 space-x-4'>
-                    <button className='py-1.5 text-sm flex items-center w-full justify-center rounded-md bg-[#dfdede] text-[#3c3c43] font-semibold'><PaymentSucessfulModal setPaymentModal={setPaymentModal} paymentModal={paymentModal}/></button>
+                  <div onClick={handlePaymentCheckout} className='flex flex-row items-center  justify-center my-3 space-x-4'>
+                    <button className='py-1.5 text-sm flex items-center w-full justify-center rounded-md bg-[#dfdede] text-[#3c3c43] font-semibold'><PaymentSucessfulModal setPaymentModal={setPaymentModal} paymentModal={paymentModal} /></button>
 
 
                   </div>
@@ -253,14 +254,29 @@ function App() {
                   </div>
                   {
                     showChangePaymentButton &&
-                    <div  className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
+                    <div className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
                       <p className="text-sm">Change</p>
                       <p className=" flex flex-row items-center  text-sm text-center justify-center rounded-full "><MdOutlineArrowForwardIos /></p>
                     </div>
 
                   }
                 </div>
-                <div>{toggleNewCard  ? <AddCard setChangePaymentMethod={setChangePaymentMethod} setShowPaymentButton = {setShowPaymentButton} /> :
+                <div>{toggleNewCard ? <div> {newCardDetails ? <div> <div className=" mx-3 my-2">
+               
+                    <div className=" flex flex-row  items-center  pointer-events-none">
+                      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="card">
+                          <path id="Vector" d="M20.6251 0H10.8036H0.982161C0.439742 0 0 0.43988 0 0.98247V15.0175C0 15.5601 0.439742 16 0.982161 16H10.8036H20.6251C21.1676 16 21.6073 15.5601 21.6073 15.0175V0.98247C21.6073 0.43988 21.1676 0 20.6251 0Z" fill="#5286F9" />
+                          <path id="Vector_2" d="M11.5549 5.20371C11.7707 5.45109 11.9587 5.72338 12.1134 6.01602C12.4269 6.60876 12.6053 7.28356 12.6053 7.99953C12.6053 8.7155 12.4269 9.39022 12.1134 9.98305C11.9587 10.2757 11.7707 10.5479 11.5549 10.7953C11.3327 11.0499 11.0809 11.2777 10.8047 11.4736C11.4991 11.966 12.346 12.2568 13.2601 12.2568C15.6068 12.2568 17.5161 10.347 17.5161 7.99953C17.5161 5.65208 15.6068 3.74219 13.2601 3.74219C12.346 3.74219 11.4991 4.03288 10.8047 4.5254C11.0809 4.72137 11.3326 4.9492 11.5549 5.20371Z" fill="#FFB655" />
+                          <path id="Vector_3" d="M12.1139 6.01593C11.9591 5.72321 11.7711 5.45101 11.5553 5.20363C11.333 4.94903 11.0813 4.72132 10.8051 4.5254C10.1108 4.03288 9.26376 3.74219 8.34971 3.74219C6.00296 3.74219 4.09375 5.65204 4.09375 7.99949C4.09375 10.3469 6.003 12.2568 8.34971 12.2568C9.26376 12.2568 10.1108 11.9661 10.8051 11.4736C11.0813 11.2777 11.333 11.0498 11.5553 10.7953C11.7711 10.5479 11.9591 10.2756 12.1139 9.98309C12.4273 9.39026 12.6057 8.71545 12.6057 7.99957C12.6057 7.28344 12.4273 6.60867 12.1139 6.01593Z" fill="#D8143A" />
+                          <path id="Vector_4" d="M8.34827 12.2574C6.00151 12.2574 4.0923 10.3476 4.0923 8.00013C4.0923 5.65268 6.00155 3.74283 8.34827 3.74283C9.26231 3.74283 10.1093 4.03352 10.8036 4.52604V0H0.982161C0.439742 0 0 0.43988 0 0.98247V15.0175C0 15.5601 0.439742 16 0.982161 16H10.8036V11.4741C10.1093 11.9666 9.26231 12.2574 8.34827 12.2574Z" fill="#3D6DEB" />
+                        </g>
+                      </svg>
+                      <p className="pl-1">6567 ***** ***** 8778</p>
+                    </div>
+                   
+                
+                </div></div> : <AddCard setToggleNewCard={setToggleNewCard} setNewCardDetails={setNewCardDetails} setChangePaymentMethod={setChangePaymentMethod} setShowPaymentButton={setShowPaymentButton} />}</div> :
                   <div>
                     {
                       selectMethod ? <div className="mx-3 my-2"><SelectCard setToggleNewCard={setToggleNewCard} /></div> : <div> {
@@ -271,6 +287,7 @@ function App() {
                 }</div>
 
 
+
               </div>
 
 
@@ -278,30 +295,30 @@ function App() {
               <div className="border border-gray-300 rounded-lg w-[64%] mt-2">
 
                 <div className="border-b flex flex-row justify-between  ">
-                  <div onClick={()=>setChangePaymentMethod(true)}  className=" flex flex-row  space-x-2 items-center my-3 px-3">
+                  <div onClick={() => setChangePaymentMethod(true)} className=" flex flex-row  space-x-2 items-center my-3 px-3">
                     <p className="active:bg-[#009B30] bg-[#7c7c7c] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
                     <p className="text-sm">Promo Code</p>
 
                   </div>
-                
-                  {
-                    showChangePromoButton && <div  className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
-                    <p className="text-sm">Change</p>
-                    <p className=" flex flex-row items-center  text-sm text-center justify-center rounded-full "><MdOutlineArrowForwardIos /></p>
-                  </div>
-                  }  
 
-                  
+                  {
+                    showChangePromoButton && <div className=" cursor-pointer flex flex-row  space-x-2 items-center my-3 px-3">
+                      <p className="text-sm">Change</p>
+                      <p className=" flex flex-row items-center  text-sm text-center justify-center rounded-full "><MdOutlineArrowForwardIos /></p>
+                    </div>
+                  }
+
+
                 </div>
-                <div>{ChangePaymentMethod && <AddPromoCode setChangePaymentMethod={setChangePaymentMethod} setPromoCodeInfo={setPromoCodeInfo} promoCode={promoCode} setPromoCode={setPromoCode} /> 
-                  
+                <div>{ChangePaymentMethod && <AddPromoCode setChangePaymentMethod={setChangePaymentMethod} setPromoCodeInfo={setPromoCodeInfo} promoCode={promoCode} setPromoCode={setPromoCode} />
+
                 }</div>
-                   {
-                         (promoCodeInfo.length > 0) && <div className="mx-9 my-2">
-                          <p className="text-sm font-semibold">Utilized Promo Code</p>
-                          <p className="text-sm font-[400] text-[#3c3c43]">{promoCodeInfo}</p>
-                         </div>
-                   }
+                {
+                  (promoCodeInfo.length > 0) && <div className="mx-9 my-2">
+                    <p className="text-sm font-semibold">Utilized Promo Code</p>
+                    <p className="text-sm font-[400] text-[#3c3c43]">{promoCodeInfo}</p>
+                  </div>
+                }
 
               </div>
 

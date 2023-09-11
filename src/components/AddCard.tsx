@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { MdCreditCard } from 'react-icons/md'
 
-const AddCard = ({setChangePaymentMethod, setShowPaymentButton}) => {
-    const [firstName, setFirstName] = useState<string>("")
-    const [lastName, setLastName] = useState<string>("")
+const AddCard = ({setChangePaymentMethod, setShowPaymentButton, setNewCardDetails, setToggleNewCard}) => {
+    const [user, setUser] = useState<string>("")
+    const [cardNumber, setCardNumber] = useState<string>("")
     const [expiryDate, setExpiryDate] = useState<string>("")
     const [cvv, setCvv] = useState<string>("")
  const handleAddButton=()=>{
     setChangePaymentMethod(false)
     setShowPaymentButton(true)
-    console.log(firstName, lastName,expiryDate,cvv, "formDetails")
+    setNewCardDetails(true)
+    setToggleNewCard(false)
+   
+    
+    console.log(user, cardNumber,expiryDate,cvv, "formDetails")
  }
 
     return (
         <div className='px-3 py-2'>
             <div className='w-full mb-4'> <label className="text-xs text-[#7c7c7c] mt-4 mb-2">Name On Card</label>
                 <input className="placeholder:text-xs font-semibold border-t-0 focus:ring-0 outline-none border-[#7c7c7c]
-                 border-b w-[100%] border-r-0 border-l-0" value={firstName} onChange={(e)=>setFirstName(e.target.value)}  placeholder="John"></input></div>
+                 border-b w-[100%] border-r-0 border-l-0" value={user} onChange={(e)=>setUser(e.target.value)}  placeholder="John Doe"></input></div>
             <div className="relative my-2">
                 <div className="absolute inset-y-0 left-0 flex items-center  pointer-events-none">
                     <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +33,7 @@ const AddCard = ({setChangePaymentMethod, setShowPaymentButton}) => {
                     </svg>
 
                 </div>
-                <input value={lastName} onChange={(e)=>setLastName(e.target.value)}  type="text" id="input-group-1" className=" border-b border-b-[#7c7c7c] w-full focus:ring-0 outline-none   text-gray-900 text-xs   focus:border-0 block  pl-10 p-[6px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0 " placeholder="Card Number" />
+                <input value={cardNumber} onChange={(e)=>setCardNumber(e.target.value)}  type="text" id="input-group-1" className=" border-b border-b-[#7c7c7c] w-full focus:ring-0 outline-none   text-gray-900 text-xs   focus:border-0 block   p-[6px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-0 pl-7" placeholder="Card Number" />
             </div>
             <div className='w-full flex flex-row justify-between space-x-3 items-center mb-4'>
                 <div className='w-[50%]'> <label className="text-xs text-[#7c7c7c] mt-4 mb-2">Expiry Date</label>
@@ -41,7 +45,7 @@ const AddCard = ({setChangePaymentMethod, setShowPaymentButton}) => {
             </div>
             <div>
                 <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-                    <div className='flex flex-row items-center'>
+                    <div onClick={handleAddButton} className='flex flex-row items-center'>
                     <input
                         className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1rem] w-[1rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-black checked:bg-black checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                         type="checkbox"
@@ -59,7 +63,7 @@ const AddCard = ({setChangePaymentMethod, setShowPaymentButton}) => {
                 </div>
 
             </div>
-            <button onClick={handleAddButton} className='py-1.5 text-sm my-3 flex items-center w-[50%] justify-center rounded-md hover:bg-[#009B30] hover:text-[#fff] bg-[#dfdede] text-[#3c3c43] font-semibold'>Add Card</button>
+            <button onClick={handleAddButton} className='py-1.5 text-sm my-3 flex items-center w-[50%] justify-center rounded-md bg-[#009B30] text-[#fff] hover:bg-[#dfdede] hover:text-[#3c3c43] font-semibold'>Add Card</button>
 
         </div>
     )
