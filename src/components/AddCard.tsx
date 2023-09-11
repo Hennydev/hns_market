@@ -18,7 +18,7 @@ const AddCard = ({setChangePaymentMethod, setShowPaymentButton, setNewCardDetail
 
     return (
         <div className='px-3 py-2'>
-            <div className='w-full mb-4'> <label className="text-xs text-[#7c7c7c] mt-4 mb-2">Name On Card</label>
+            <div className='w-full mb-4 '> <label className="text-xs text-[#7c7c7c] mt-4 mb-2">Name On Card</label>
                 <input className="placeholder:text-xs font-semibold border-t-0 focus:ring-0 outline-none border-[#7c7c7c]
                  border-b w-[100%] border-r-0 border-l-0" value={user} onChange={(e)=>setUser(e.target.value)}  placeholder="John Doe"></input></div>
             <div className="relative my-2">

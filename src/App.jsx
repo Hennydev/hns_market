@@ -11,6 +11,7 @@ import { Route, RouterProvider, Routes } from 'react-router'
 import Cart from './components/Cart'
 import { createBrowserRouter } from 'react-router-dom'
 import CheckOutModal from './components/CheckOutModal'
+import CartLayout from './components/CartLayout'
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,27 @@ const router = createBrowserRouter([
       //   element:<CheckOutModal/>
       // }
     ]
-  }
+  },
+  // {
+  //   path:"/CartLayout",
+  //   element: <CartLayout />,
+  //   children:[
+  //     // {
+  //     //   path:"/ProductDetails",
+  //     //   element:<ProductDetails />
+  //     // },
+  //     // {
+  //     //   path:"/Cart",
+  //     //   element:<Cart/>
+  //     // },
+  //     {
+  //       path:"/CheckOutModal",
+  //       element:<CheckOutModal/>
+  //     }
+  //   ]
+  // }
+
+  
 ])
 
 

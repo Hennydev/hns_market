@@ -7,11 +7,11 @@ const Suggestions = () => {
     return (
         <div className=' mx-auto mb-5'>
             <div>
-                <p className='py-4 text-[20px] font-semibold'>
+                <p className='md:py-4 py-3 md:text-[20px] font-semibold'>
                     Similar Suggestions
                 </p>
-                <div className='flex flex-row items-center justify-between'>
-                    <div className='flex flex-col w-[24%]'>
+                <div className='grid grid-cols-1 md:grid-cols-4   items-center justify-between'>
+                    <div className='flex flex-col md:w-[50%]'>
                         <div className='bg-[#eaf7ee]  px-6 rounded-t-xl pb-8 relative border border-[#dddde2] border-b-0'>
                             <div className='flex items-center justify-center'>
                             <img src={three} alt={"Product"} />
@@ -38,7 +38,7 @@ const Suggestions = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:w-[24%]'>
                         <div className='bg-[#eaf7ee]  px-6 pb-8 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={chicken} alt={"Product"} />
@@ -64,7 +64,7 @@ const Suggestions = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:w-[24%]'>
                         <div className='bg-[#eaf7ee]  px-6 pb-8 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={tomatoe} alt={"Product"} />
@@ -90,7 +90,7 @@ const Suggestions = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:w-[24%]'>
                         <div className='bg-[#eaf7ee] pb-8 px-6 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={tomatoe} alt={"Product"} />

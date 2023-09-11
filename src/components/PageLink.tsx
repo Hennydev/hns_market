@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const PageLink = () => {
   return (
     <div className='w-[90%] mx-auto my-4'>
-        <div className=' flex flex-row items-center space-x-1'>
+        <div className=' flex flex-row items-center space-x-1 md:text-[14px] text-[12px]'>
           <Link to={"/"}> <p>Home</p></Link> 
             <p><MdArrowForwardIos/></p>
            <Link to={"/Grocery"}><p>Gorcery</p></Link> 

@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../assets/logo.png"
 import user from "../assets/user.png"
 import uk from "../assets/uk.png"
-import { MdHelpOutline, MdOutlineFavoriteBorder, MdOutlineKeyboardArrowDown } from "react-icons/md"
+import { MdClose, MdHelpOutline, MdMenu, MdOutlineFavoriteBorder, MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { LiaShoppingCartSolid } from "react-icons/lia"
 import { Link } from 'react-router-dom'
 const Nav = () => {
-  return (
-    <div className='w-[90%] py-7 mx-auto flex flex-row items-center justify-between'>
-      <div className=' '>
-        <img src={logo} alt='logo' />
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [closeMenu, setCloseMenu] = useState(false)
+  const handleMenu = () => {
+    setIsMenuOpen(true)
 
-      </div>
-      <div className=' '>
-        
+  }
+  return (
+    <div>
+      <div className='w-[90%] md:py-7 py-4 mx-auto flex flex-row items-center justify-between'>
+        <div className=' '>
+          <img src={logo} alt='logo' />
+
+        </div>
+        <div className=' md:block hidden'>
+
 
           <div className="relative ">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -24,10 +31,62 @@ const Nav = () => {
             <input type="search" id="default-search" className="block w-full py-1 px-24 pl-10 text-sm text-gray-900  rounded-xl bg-[#C4C4C433] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Store or Product..." required />
 
           </div>
-        
+
+        </div>
+        {isMenuOpen ? <div onClick={()=>setIsMenuOpen(false)} className='md:hidden flex '><MdClose />
+
+        </div> : <div onClick={handleMenu} className='md:hidden flex text-[16px]'><p className='text-[16px]'><MdMenu /></p></div>
+        }
+         <div className='hidden md:flex md:flex-row flex-col items-center md:space-x-4 md:space-y-0  space-y-3 justify-center md:justify-evenly'>
+          <Link to={"/help"}>
+            <div className='flex flex-row items-center space-x-1'>
+              <p><MdHelpOutline /></p>
+              <p>Help</p>
+              <p><MdOutlineKeyboardArrowDown /></p>
+            </div>
+          </Link>
+
+          <Link to={"/Cart"}>
+            <div className='flex flex-row items-center space-x-1'>
+              <p><LiaShoppingCartSolid /></p>
+              <p>Cart</p>
+
+            </div>
+          </Link>
+
+
+          <Link to="/Favourites">
+            <div className='flex flex-row items-center space-x-1'>
+              <p><MdOutlineFavoriteBorder /></p>
+              <p>Favourite</p>
+
+            </div>
+          </Link>
+
+          <Link to={"/Account"}>
+            <div className='flex flex-row items-center space-x-1'>
+              <img src={user} alt='logo' />
+              <p>Account</p>
+              <p><MdOutlineKeyboardArrowDown /></p>
+            </div>
+          </Link>
+
+
+          <Link to="/Language">
+            <div className='flex flex-row items-center space-x-1'>
+              <img src={uk} alt='logo' />
+              <p>English</p>
+              <p><MdOutlineKeyboardArrowDown /></p>
+            </div>
+
+          </Link>
+        </div>
+
       </div>
-      <div className='  '>
-        <div className='flex flex-row items-center space-x-4 justify-evenly'>
+
+      {
+        isMenuOpen &&  <div className='  '>
+        <div className='md:hidden flex md:flex-row flex-col items-center md:space-x-4 md:space-y-0  space-y-3 justify-center md:justify-evenly'>
           <Link to={"/help"}>
             <div className='flex flex-row items-center space-x-1'>
               <p><MdHelpOutline /></p>
@@ -72,6 +131,8 @@ const Nav = () => {
           </Link>
         </div>
       </div>
+      }
+     
     </div>
   )
 }
