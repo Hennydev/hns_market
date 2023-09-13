@@ -4,7 +4,7 @@ import CountrySelector from './CountrySelector'
 const Form = () => {
   return (
     <div className="flex md:flex-row flex-col w-[100%] md:space-x-3 ">
-    <div className="flex flex-col my-1 w-[50%] ">
+    <div className="flex flex-col my-1 md:w-[50%] ">
       <label className="text-sm text-[#7c7c7c] mt-4 mb-2">First Name</label>
       <input className="placeholder:text-sm font-semibold border-t-0 focus:ring-0 outline-none border-[#7c7c7c] border-b w-[100%] border-r-0 border-l-0" placeholder="John"></input>
 
@@ -21,7 +21,7 @@ const Form = () => {
       </div>
 
     </div>
-    <div className="flex flex-col my-1 w-[50%] ">
+    <div className="flex flex-col my-1 md:w-[50%] ">
       <label className="text-sm text-[#7c7c7c] mt-4 mb-2">Last Name</label>
       <input className="placeholder:text-sm font-semibold border-t-0 focus:ring-0 outline-none border-[#7c7c7c] border-b w-[100%] border-r-0 border-l-0" placeholder="Doe"></input>
 

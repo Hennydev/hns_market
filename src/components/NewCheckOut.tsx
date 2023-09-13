@@ -33,7 +33,7 @@ const customStyles = {
 };
 
 
-function App() {
+function NewCheckOut() {
   const [firstName, setFirstName] = useState("John")
   const [lastName, setLastName] = useState("Doe")
   const [modalOpen, setModalOpen] = useState(false);
@@ -67,17 +67,12 @@ function App() {
 
   }
   return (
-    <div className="App ">
-      <button onClick={handleCheckOutModal}>Check Out</button>
-      <Modal
-        isOpen={modalOpen}
-        onRequestClose={() => setModalOpen(false)}
-        style={customStyles}
-      >
-        <div className="bg-white border rounded-lg">
+
+      
+        <div className="bg-white border mx-3 md:mx-0 rounded-lg">
           <div className=''>
             <div className="py-4 border-b">
-              <div className="w-[60%] px-8 flex items-center justify-between ">
+              <div className="md:w-[60%] px-8 flex items-center justify-between ">
                 <img src={logo} alt="logo"></img>
                 <p className=" font-semibold text-[16px]">Complete your Checkout</p>
               </div>
@@ -86,7 +81,7 @@ function App() {
             <p className='py-3 text-[16px] px-8 font-semibold'>Check Out</p>
             <div className='md:px-8 px-3 flex  md:flex-row md:space-y-0 space-y-3 flex-col md:space-x-3 w-full py-2   '>
 
-              {displayEdit ? <div className='flex flex-col w-[65%]  px-3   border rounded-lg '> <EditForm /> </div> : <div className='flex flex-col w-[65%]    border rounded-lg '>
+              {displayEdit ? <div className='flex flex-col md:w-[65%]  md:px-3   border rounded-lg '> <EditForm /> </div> : <div className='flex flex-col md:w-[65%]    border rounded-lg '>
                 <div className="border-b flex flex-row justify-between  ">
                   <div className=" flex flex-row  space-x-2 items-center my-3 px-3">
                     <p className="active:bg-[#009B30] bg-[#7c7c7c] flex  items-center h-4 w-4 text-xs text-center justify-center rounded-full text-[#fff]"><MdCheck /></p>
@@ -215,7 +210,7 @@ function App() {
 
               </div>}
 
-              <div className='w-[35%]'>
+              <div className='md:w-[35%]'>
                 <div className=' px-4 py-2 space-y-4 border rounded-lg'>
                   <p className='text-[18px] font-semibold'>
                     Summary
@@ -244,7 +239,7 @@ function App() {
 
 
 
-              <div className="border border-gray-300 rounded-lg w-[64%]">
+              <div className="border border-gray-300 rounded-lg md:w-[64%]">
 
                 <div className="border-b flex flex-row justify-between  ">
                   <div onClick={() => setPaymentType(true)} className=" flex flex-row  space-x-2 items-center my-3 px-3">
@@ -292,7 +287,7 @@ function App() {
 
 
 
-              <div className="border border-gray-300 rounded-lg w-[64%] mt-2">
+              <div className="border border-gray-300 rounded-lg md:w-[64%] mt-2">
 
                 <div className="border-b flex flex-row justify-between  ">
                   <div onClick={() => setChangePaymentMethod(true)} className=" flex flex-row  space-x-2 items-center my-3 px-3">
@@ -331,10 +326,8 @@ function App() {
           </div>
         </div>
 
-        {/* <button onClick={() => setModalOpen(false)}>Close Modal</button> */}
-      </Modal>
-    </div>
+    
   );
 }
 
-export default App;
+export default NewCheckOut;

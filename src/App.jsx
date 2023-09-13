@@ -12,6 +12,8 @@ import Cart from './components/Cart'
 import { createBrowserRouter } from 'react-router-dom'
 import CheckOutModal from './components/CheckOutModal'
 import CartLayout from './components/CartLayout'
+import NewCheckOut from "./components/NewCheckOut"
+import NewPaymentModal from './components/NewPaymentModal'
 
 
 const router = createBrowserRouter([
@@ -27,10 +29,19 @@ const router = createBrowserRouter([
         path:"/Cart",
         element:<Cart/>
       },
-      // {
-      //   path:"/CheckOutModal",
-      //   element:<CheckOutModal/>
-      // }
+      {
+        path:"/CheckOutModal",
+        element:<CheckOutModal/>
+      },
+      {
+        path:"/NewCheckOut",
+        element:<NewCheckOut/>
+      },
+      {
+        path:"/NewPaymentModal",
+        element:<NewPaymentModal/>
+      }
+
     ]
   },
   // {
