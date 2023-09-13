@@ -5,7 +5,7 @@ import { AiFillInstagram } from 'react-icons/ai'
 import { VscTwitter } from 'react-icons/vsc'
 const Footer = () => {
     return (
-        <div className='w-[90%] mx-auto md:mt-24'>
+        <div className='w-[90%] mx-auto md:mt-24 mt-14'>
             <div className=' mb-5 md:py-12 flex md:flex-row flex-col md:justify-between  md:items-start items-center'>
                 <div className='flex flex-col space-y-2'>
                     <img className='w-16 h-7' src={logo} alt={"Product"} />
@@ -15,17 +15,17 @@ const Footer = () => {
                         <p className='text-[#009B30]'><VscTwitter /></p>
                     </div>
                 </div>
-                <div className='flex flex-col md:my-0 my-2 md:items-start items-center md:justify-start justify-center space-y-2'>
+                <div className='flex flex-col md:mt-0 mt-4 md:items-start items-center md:justify-start justify-center space-y-2'>
                     <p>Learn More</p>
                     <div className="opacity-80  text-green-950 text-sm leading-loose flex flex-col md:items-start items-center space-y-2">
                         <p>About Us</p><p>Jobs</p><p>Privacy Policy</p><p>Contact Us</p></div>
                 </div>
-                <div className='flex flex-col space-y-2 md:items-start items-center'>
+                <div className='flex flex-col space-y-2 md:my-0 my-4 md:items-start items-center'>
                     <p>Shop</p>
                     <div className="opacity-80 text-green-950 text-sm leading-loose flex md:items-start items-center flex-col space-y-2">
                         <p>Delivery</p><p>Track My Order</p></div>
                 </div>
-                <div className='flex flex-col space-y-2 md:items-start items-center'>
+                <div className='flex flex-col space-y-2 md:my-0 my-4 md:items-start items-center'>
                     <p>Help</p>
                     <div className="opacity-80 text-green-950 text-sm leading-loose flex flex-col md:items-start items-center space-y-2">
                         <p>Reach Us</p><p>Privacy Policy</p></div>

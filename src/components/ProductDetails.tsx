@@ -54,9 +54,9 @@ const ProductDetails = () => {
                     </div>
 
                     <div className='flex flex-row items-center my-4 md:space-x-4 space-x-2'>
-                        <button className='py-2 rounded-lg w-[50%] bg-[#009B30] text-[white]'>Add to Cart</button>
+                        <button className='py-2 rounded-lg w-[50%] md:w-[25%] bg-[#009B30] text-[white]'>Add to Cart</button>
 
-                        <div className='py-2 rounded-lg w-[50%] hover:bg-[#009B30] hover:text-[white] flex flex-row items-center justify-center text-[#3c3c43] space-x-1'>
+                        <div className='py-2 rounded-lg w-[50%] md:w-[25%] hover:bg-[#009B30] hover:text-[white] flex flex-row items-center justify-center text-[#3c3c43] space-x-1'>
                             <p className='hover:text-white  flex items-center justify-center '><MdOutlineFavoriteBorder /></p>
                             <p>Save for Later</p>
 

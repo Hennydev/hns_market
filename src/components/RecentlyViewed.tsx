@@ -10,11 +10,11 @@ const RecentlyViewed = () => {
                 <p className='py-4 text-[20px] font-semibold'>
                     Recently Viewed
                 </p>
-                <div className='flex flex-row items-center justify-between'>
-                    <div className='flex flex-col w-[24%]'>
+                <div className='grid grid-cols-1  md:grid-cols-4   md:space-y-0 space-y-4  '>
+                    <div className='flex flex-col md:min-w-[200px]  md:max-w-[250px] md:h-[400px]'>
                         <div className='bg-[#eaf7ee]  px-6 rounded-t-xl pb-8 relative border border-[#dddde2] border-b-0'>
                             <div className='flex items-center justify-center'>
-                            <img src={tomatoe} alt={"Product"} />
+                            <img src={three} alt={"Product"} />
                             </div>
                            
                             <div className='absolute right-2 top-4 space-y-3'>
@@ -24,21 +24,21 @@ const RecentlyViewed = () => {
                         </div>
                         <div className='bg-white pt-2  border border-[#dddde2] border-t-0  px-2 rounded-b-xl pb-6'>
                             <div className='flex flex-row items-center justify-between'>
-                                <p className='text-[18px] font-semibold'>
+                                <p className='md:text-[14px] text-[14px] font-semibold'>
                                     Apple 
                                 </p>
-                                <div className='flex flex-row items-center text-[18px] font-semibold'>
+                                <div className='flex flex-row items-center md:text-[14px] text-[14px] font-semibold'>
                                     <MdOutlineEuro /> <p>4.99</p>
                                 </div>
                             </div>
 
 
-                            <p className='font-family-lato text-[16px] text-[#6f6f72]'>
+                            <p className='font-family-lato md:text-[13px] text-[13px] text-[#6f6f72]'>
                                 7pcs
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:min-w-[200px] md:max-w-[250px] md:h-[400px]'>
                         <div className='bg-[#eaf7ee]  px-6 pb-8 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={chicken} alt={"Product"} />
@@ -50,21 +50,21 @@ const RecentlyViewed = () => {
                         </div>
                         <div className='bg-white pt-2  border border-[#dddde2] border-t-0  px-2 rounded-b-xl pb-6'>
                             <div className='flex flex-row items-center justify-between'>
-                                <p className='text-[18px] font-semibold'>
+                                <p className='text-[14px] font-semibold'>
                                     Chicken
                                 </p>
-                                <div className='flex flex-row items-center text-[18px] font-semibold'>
+                                <div className='flex flex-row items-center text-[14px] font-semibold'>
                                     <MdOutlineEuro /> <p>4.99</p>
                                 </div>
                             </div>
 
 
-                            <p className='font-family-lato text-[16px] text-[#6f6f72]'>
+                            <p className='font-family-lato text-[13px] text-[#6f6f72]'>
                                 7pcs
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:min-w-[200px] md:max-w-[250px] md:h-[400px]'>
                         <div className='bg-[#eaf7ee]  px-6 pb-8 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={tomatoe} alt={"Product"} />
@@ -76,21 +76,21 @@ const RecentlyViewed = () => {
                         </div>
                         <div className='bg-white pt-2  border border-[#dddde2] border-t-0  px-2 rounded-b-xl pb-6'>
                             <div className='flex flex-row items-center justify-between'>
-                                <p className='text-[18px] font-semibold'>
+                                <p className='text-[14px] font-semibold'>
                                     Tomatoes
                                 </p>
-                                <div className='flex flex-row items-center text-[18px] font-semibold'>
+                                <div className='flex flex-row items-center text-[14px] font-semibold'>
                                     <MdOutlineEuro /> <p>4.99</p>
                                 </div>
                             </div>
 
 
-                            <p className='font-family-lato text-[16px] text-[#6f6f72]'>
+                            <p className='font-family-lato text-[13px] text-[#6f6f72]'>
                                 7pcs
                             </p>
                         </div>
                     </div>
-                    <div className='flex flex-col w-[24%]'>
+                    <div className='flex flex-col md:min-w-[200px] md:max-w-[250px] md:h-[400px]'>
                         <div className='bg-[#eaf7ee] pb-8 px-6 rounded-t-xl relative border border-[#dddde2] border-b-0'>
                         <div className='flex items-center justify-center'>
                             <img src={tomatoe} alt={"Product"} />
@@ -102,16 +102,16 @@ const RecentlyViewed = () => {
                         </div>
                         <div className='bg-white pt-2  border border-[#dddde2] border-t-0  px-2 rounded-b-xl pb-6'>
                             <div className='flex flex-row items-center justify-between'>
-                                <p className='text-[18px] font-semibold'>
+                                <p className='text-[14px] font-semibold'>
                                     Tomatoes
                                 </p>
-                                <div className='flex flex-row items-center text-[18px] font-semibold'>
+                                <div className='flex flex-row items-center text-[14px] font-semibold'>
                                     <MdOutlineEuro /> <p>4.99</p>
                                 </div>
                             </div>
 
 
-                            <p className='font-family-lato text-[16px] text-[#6f6f72]'>
+                            <p className='font-family-lato text-[13px] text-[#6f6f72]'>
                                 7pcs
                             </p>
                         </div>

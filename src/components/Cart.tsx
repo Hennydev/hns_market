@@ -19,11 +19,11 @@ const Cart = () => {
     return (
         <div className='w-[90%] mx-auto'>
             <p className='py-4 text-[20px] font-semibold'>Cart(4)</p>
-            <div className=' flex flex-row space-x-4 w-full py-4 px-2  mb-6'>
-                <div className='flex flex-col w-[70%] border rounded-2xl px-5'>
+            <div className=' flex md:flex-row flex-col  md:space-x-4 w-full py-4 px-2  mb-6'>
+                <div className='flex md:flex-col md:w-[70%] w-full border rounded-2xl px-5'>
 
-                    <div className='flex flex-row items-center justify-between my-2'>
-                        <div className='flex flex-row space-x-3 items-center'>
+                    <div className='flex md:flex-row flex-col  items-center md:justify-between my-2'>
+                        <div className='flex md:flex-row flex-col md:space-x-3 items-center'>
                             <img  src={three} alt={"Product"} />
                             <div className=' text-[18px] flex flex-col  text'>
                                 <p className='text-[#1B1B1B] font-semibold'>Apples(700mg)</p>
