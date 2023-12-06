@@ -48,10 +48,7 @@ const router = createBrowserRouter([
         path: "/FeedBack",
         element: <FeedBack />,
       },
-      {
-        path: "/FeedbackSubmitted",
-        element: <FeedbackSubmitted />,
-      },
+     
       {
         path: "/Contact",
         element: <Contact />,

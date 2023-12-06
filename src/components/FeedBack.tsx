@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import review from "../assets/review.png";
 import feedbackimg from "../assets/feedbackimg.png";
+import { MdClose } from "react-icons/md";
+import visual from "../assets/visual.png";
+import { useNavigate } from "react-router";
 
 const FeedBack = () => {
   const [modal, setModal] = useState(false);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+  };
   return (
-    <div className="w-[100%] mx-auto py-10 ">
+    <div className="w-[100%] mx-auto py-10 relative">
       <div className="py-4 border-b">
         <div className=" px-8 flex flex-row items-center justify-between md:w-[60%] ">
           <img src={logo} alt="logo"></img>
@@ -50,6 +57,42 @@ const FeedBack = () => {
           </div>
         </div>
       </div>
+      {modal && (
+        <>
+          {" "}
+          <div className="w-[100%] h-full  absolute bg-[#003310] opacity-75 top-0"></div>
+          <div className=" md:w-[28%] md:h-[450px] h-[420px] w-[90%]  absolute top-0 right-0 left-0 bottom-0 m-auto bg-white rounded-lg shadow border border-black border-opacity-20  ">
+            <div className="flex items-end justify-end w-full p-4">
+              <button onClick={() => setModal(false)} className="text-right ">
+                {" "}
+                <MdClose />
+              </button>
+            </div>
+
+            <div className="w-[70%] h-full  mx-auto  flex flex-col md:pt-14 space-y-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={visual} alt="submitted-logo"></img>
+              </div>
+              <div className=" ">
+                <div className=" text-center text-zinc-900 text-2xl font-semibold font-['Inter']">
+                  Feedback Submitted
+                </div>
+                <div className="text-center text-neutral-500 text-base font-medium font-['Lato'] leading-tight">
+                  Your feedback has been submitted successfully
+                </div>
+              </div>
+              <div className="flex-col justify-center items-center gap-2 inline-flex w-full">
+                <button
+                  onClick={handleClick}
+                  className="px-20 py-3 w-full text-center text-green-600 text-sm font-bold font-['Lato'] rounded-lg border border-green-600 "
+                >
+                  Back home
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
