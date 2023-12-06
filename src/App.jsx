@@ -14,35 +14,49 @@ import CheckOutModal from './components/CheckOutModal'
 import CartLayout from './components/CartLayout'
 import NewCheckOut from "./components/NewCheckOut"
 import NewPaymentModal from './components/NewPaymentModal'
+import FeedBack from './components/FeedBack'
+import FeedbackSubmitted from './components/FeedbackSubmitted'
+import Contact from './components/Contact'
 
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <Layout />,
-    children:[
+    children: [
       {
-        path:"/ProductDetails",
-        element:<ProductDetails />
+        path: "/ProductDetails",
+        element: <ProductDetails />,
       },
       {
-        path:"/Cart",
-        element:<Cart/>
+        path: "/Cart",
+        element: <Cart />,
       },
       {
-        path:"/CheckOutModal",
-        element:<CheckOutModal/>
+        path: "/CheckOutModal",
+        element: <CheckOutModal />,
       },
       {
-        path:"/NewCheckOut",
-        element:<NewCheckOut/>
+        path: "/NewCheckOut",
+        element: <NewCheckOut />,
       },
       {
-        path:"/NewPaymentModal",
-        element:<NewPaymentModal/>
-      }
-
-    ]
+        path: "/NewPaymentModal",
+        element: <NewPaymentModal />,
+      },
+      {
+        path: "/FeedBack",
+        element: <FeedBack />,
+      },
+      {
+        path: "/FeedbackSubmitted",
+        element: <FeedbackSubmitted />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      },
+    ],
   },
   // {
   //   path:"/CartLayout",
@@ -62,9 +76,7 @@ const router = createBrowserRouter([
   //     }
   //   ]
   // }
-
-  
-])
+]);
 
 
 function App() {
@@ -77,7 +89,7 @@ function App() {
         <Route path="/"  element={<Layout />}></Route>
         <Route path={"/Cart"} element={<Cart/>}></Route>
         <Route path={"/ProductDetails"} element={<ProductDetails />}></Route>
-        <Route path={"/Suggestions"} element={<Suggestions />}></Route>  
+        <Route path={"/Suggestions"} element={<Suggestions />}></Route>
           </Routes> */}
 
 
